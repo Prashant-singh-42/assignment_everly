@@ -1,0 +1,9 @@
+th,td {
+    padding: 10px;
+    justify-content: center;
+}
+
+th:nth-child(even){
+    background-color: #D6EEEE;
+  }
+
