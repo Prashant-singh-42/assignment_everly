@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Test 1</title>
+  </head>
+  <body>
+    <div id="snackbar">Form Submitted successfully</div>
+    <div class="wrapper">
+      <form
+        action="#"
+        class="form"
+        name="testForm"
+        onsubmit="return validateForm()"
+      >
+        <div class="input_field special2">
+          <label for="source">Select your source : </label>
+          <input
+            id="source"
+            type="text"
+            name="source"
+            placeholder="Google Cloud Storage"
+            value="Google Cloud Storage"
+            required
+          />
+          <div class="errmsg">
+            <span class="errmsg1"></span>
+            <span class="errmsg2"></span>
+            <span class="errmsg3"></span>
+          </div>
+        </div>
+
+        <div class="input_field">
+          <label for="pipeline">Provide a name for pipeline : </label>
+          <input
+            id="pipeline"
+            type="text"
+            name="pipeline"
+            placeholder="e.g., cust_shop_energy_gkateway001"
+            required
+          />
+          <div class="errmsg">
+            <span class="errmsg1"></span>
+            <span class="errmsg2"></span>
+            <span class="errmsg3"></span>
+          </div>
+        </div>
+
+        <div class="input_field">
+          <label for="project_name">GCS project name : </label>
+          <input
+            id="project_name"
+            type="text"
+            name="project_name"
+            placeholder="project-id"
+            required
+          />
+          <div class="errmsg">
+            <span class="errmsg1"></span>
+            <span class="errmsg2"></span>
+            <span class="errmsg3"></span>
+          </div>
+        </div>
+
+        <div class="input_field">
+          <label for="bucket_name">GCS bucket name : </label>
+          <input
+            id="bucket_name"
+            type="text"
+            name="bucket_name"
+            placeholder="gs://your-bucket"
+            required
+          />
+          <div class="errmsg">
+            <span class="errmsg1"></span>
+            <span class="errmsg2"></span>
+            <span class="errmsg3"></span>
+          </div>
+        </div>
+
+        <div class="input_field">
+          <label for="files">Input Cloud Storage File(s) : </label>
+          <input
+            id="files"
+            type="text"
+            name="files"
+            placeholder="GCS location of your files"
+            required
+          />
+          <div class="errmsg">
+            <span class="errmsg1"></span>
+            <span class="errmsg2"></span>
+            <span class="errmsg3"></span>
+          </div>
+        </div>
+
+        <div class="input_field special">
+          <label for="credentials">GCS credentials : </label>
+          <input id="credentials" type="text" name="credentials" required />
+          <div class="errmsg">
+            <span class="errmsg1"></span>
+            <span class="errmsg2"></span>
+            <span class="errmsg3"></span>
+          </div>
+          <span>
+            <p>Example:</p>
+            <p>gs://your-bucket/your-files/01.csv</p>
+          </span>
+        </div>
+
+        <div class="input_field">
+          <label for="run">Run Every : </label>
+          <input
+            id="run"
+            type="text"
+            name="run"
+            placeholder="(in minutes)"
+            required
+          />
+          <div class="errmsg">
+            <span class="errmsg1"></span>
+            <span class="errmsg2"></span>
+            <span class="errmsg3"></span>
+          </div>
+        </div>
+
+        <div class="input_field last">
+          <div class="btn1">
+            <button type="submit" class="btn">Create</button>
+          </div>
+
+          <div class="btn2">
+            <button class="btn" onclick="this.form.reset()" >Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

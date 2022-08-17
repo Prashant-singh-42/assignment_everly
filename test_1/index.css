@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+}
+body {
+    background-image: linear-gradient(to right,#43CBFF,#9708CC);
+}
+
+.wrapper {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.wrapper form {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.wrapper form .input_field {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+/* input styles special input*/
+.wrapper form .input_field.special2 input{
+    background-color: white;
+    text-align: end;
+}
+
+.wrapper form .input_field.special input{
+    width: 50%;
+    background-color: rgb(177, 187, 196);
+}
+
+.wrapper form .input_field.special{
+    position: relative;
+}
+.wrapper form .input_field.special span p{
+    font-size: 18px;
+    color: rgb(129, 141, 149);
+}
+
+.wrapper form .input_field.special span{
+    position: absolute;
+    right: 105px;
+    bottom: 47px;
+}
+
+.wrapper form .input_field.last{
+    margin-bottom: 0;
+}
+
+
+/* common input and label styles */
+.wrapper form .input_field label {
+    width: 40%;
+    text-align: right;
+    margin-right: 20px;
+    padding: 13px 1px;
+    border-right: 2px solid black;
+}
+
+.wrapper form .input_field input {
+    width: 55%;
+    outline: none;
+    border: none;
+    background-color: rgb(235, 239, 244);
+    padding: 13px 6px;
+    border-radius: 3px;
+    transition: all 0.1s ease-in-out;
+}
+
+
+/* states of input */
+.wrapper form .input_field input:hover {
+    border-bottom: 2px solid #06f;
+}
+
+.wrapper form .input_field input:focus {
+    border-left: 4px solid #06f;
+    border-right: 4px solid #06f;
+    border-bottom: none;
+}
+
+/* styles for the error message card */
+.wrapper form .input_field .errmsg {
+    background-color: rgb(217, 80, 80);
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    color: rgb(255, 185, 185);
+    position: absolute;
+    font-size: 14px;
+    right: 30px;
+    top: 50px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    padding: 10px;
+    transition: all 0.1s ease-in-out;
+}
+
+.wrapper form .input_field .errmsg span {
+    position:initial;
+}
+
+.wrapper form .input_field .errmsg.visible {
+    visibility:visible;
+}
+
+.wrapper form .input_field .err {
+    border-left: 4px solid rgb(217, 80, 80);
+    border-right: 4px solid rgb(217, 80, 80);
+    border-bottom: none;
+}
+
+/* styles for the buttons */
+.wrapper form .input_field.last div button{
+  align-items: center;
+  background-color: #06f;
+  border: 2px solid #06f;
+  color: #fff;
+  cursor: pointer;
+  fill: #000;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  transition: all .3s;
+}
+
+.wrapper form .input_field.last div button:focus {
+  color: #171e29;
+}
+
+.wrapper form .input_field.last div button:hover {
+  background-color: #3385ff;
+  border-color: #3385ff;
+  fill: #06f;
+}
+
+.wrapper form .input_field.last div button:active {
+  background-color: #3385ff;
+  border-color: #3385ff;
+  fill: #06f;
+}
+
+/* getting the button to look like forms*/
+.wrapper form .input_field.last div {
+    display: flex;
+}
+
+.wrapper form .input_field.last .btn1 {
+    width: 40%;
+    margin-right: 20px;
+    justify-content: flex-end;
+}
+
+.wrapper form .input_field.last .btn1 .btn{
+    width: 80%;   
+}
+
+.wrapper form .input_field.last .btn2 {
+    width: 55%;
+    justify-content: flex-start;
+}
+
+.wrapper form .input_field.last .btn2 .btn{
+    width: 91%;
+}  
+
+
+/* for the snackbar */
+#snackbar {
+    visibility: hidden; 
+    min-width: 250px; 
+    margin-left: -125px; 
+    background-color: rgb(157, 226, 96); 
+    color: #fff; 
+    text-align: center; 
+    border-radius: 2px; 
+    padding: 16px; 
+    position: fixed; 
+    z-index: 1; 
+    left: 50%; 
+    bottom: 30px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+
+/* for the responsiveness */
+@media (max-width: 724px) {
+
+    .wrapper {
+        max-width: 450px;
+    }
+
+
+    .wrapper form .input_field{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 30px;
+    }
+
+    .wrapper form .input_field label {
+        width: 100%;
+        margin-right: 0;
+        text-align: left;
+        border: none;
+        padding: 0;
+    }
+
+    .wrapper form .input_field input {
+        width: 100%;
+    }
+
+    .wrapper form .input_field.last .btn1 {
+        width: 100%;
+        margin-right: 0;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .wrapper form .input_field.last .btn1 .btn{
+        width: 80%;   
+    }
+    
+    .wrapper form .input_field.last .btn2 {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .wrapper form .input_field.last .btn2 .btn{
+        width: 80%;
+    }  
+
+    .wrapper form .input_field.special input{
+        width: 90%;
+    }
+
+    .wrapper form .input_field.special span{
+        position: absolute;
+        left: 0;
+        bottom: 66px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .wrapper form .input_field.special span p{
+        padding-right: 10px;
+    }
+
+    .wrapper form .input_field .errmsg {
+        width: 75%;
+        left: 50px;
+        top: 70px;
+    }
+}
